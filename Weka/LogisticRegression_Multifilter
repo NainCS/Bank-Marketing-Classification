@@ -1,0 +1,115 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.FilteredClassifier -F "weka.filters.MultiFilter -F \"weka.filters.unsupervised.attribute.Standardize \" -F \"weka.filters.unsupervised.attribute.NominalToBinary -R first-last\" -F \"weka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42\" -S 1" -S 1 -W weka.classifiers.sklearn.ScikitLearnClassifier -- -batch 100 -learner LogisticRegression -parameters "C=0.1, class_weight=None, max_iter=5000, random_state=42, solver=\'saga\'" -py-command /Users/Owner/Desktop/Bank-Project/.venv/bin/python3 -py-path default -server-name none -do-not-check-capabilities
+Relation:     bank-small-weka
+Instances:    4521
+Attributes:   17
+              age
+              job
+              marital
+              education
+              default
+              balance
+              housing
+              loan
+              contact
+              day
+              month
+              duration
+              campaign
+              pdays
+              previous
+              poutcome
+              y
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+FilteredClassifier using weka.classifiers.sklearn.ScikitLearnClassifier -batch 100 -learner LogisticRegression -parameters "C=0.1, class_weight=None, max_iter=5000, random_state=42, solver=\'saga\'" -py-command /Users/Owner/Desktop/Bank-Project/.venv/bin/python3 -py-path default -server-name none -do-not-check-capabilities on data filtered through weka.filters.MultiFilter -F "weka.filters.unsupervised.attribute.Standardize " -F "weka.filters.unsupervised.attribute.NominalToBinary -R first-last" -F "weka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42" -S 1918958059
+
+Filtered Header
+@relation 'bank-small-weka-weka.filters.unsupervised.attribute.Standardize-weka.filters.unsupervised.attribute.NominalToBinary-Rfirst-last-weka.filters.supervised.instance.SMOTE-C0-K5-P668.0-S42-weka.filters.MultiFilter-Fweka.filters.unsupervised.attribute.Standardize-Fweka.filters.unsupervised.attribute.NominalToBinary -R first-last-Fweka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42-S1918958059'
+
+@attribute age numeric
+@attribute job=unemployed numeric
+@attribute job=services numeric
+@attribute job=management numeric
+@attribute job=blue-collar numeric
+@attribute job=self-employed numeric
+@attribute job=technician numeric
+@attribute job=entrepreneur numeric
+@attribute job=admin. numeric
+@attribute job=student numeric
+@attribute job=housemaid numeric
+@attribute job=retired numeric
+@attribute job=unknown numeric
+@attribute marital=married numeric
+@attribute marital=single numeric
+@attribute marital=divorced numeric
+@attribute education=primary numeric
+@attribute education=secondary numeric
+@attribute education=tertiary numeric
+@attribute education=unknown numeric
+@attribute default=yes numeric
+@attribute balance numeric
+@attribute housing=yes numeric
+@attribute loan=yes numeric
+@attribute contact=cellular numeric
+@attribute contact=unknown numeric
+@attribute contact=telephone numeric
+@attribute day numeric
+@attribute month=oct numeric
+@attribute month=may numeric
+@attribute month=apr numeric
+@attribute month=jun numeric
+@attribute month=feb numeric
+@attribute month=aug numeric
+@attribute month=jan numeric
+@attribute month=jul numeric
+@attribute month=nov numeric
+@attribute month=sep numeric
+@attribute month=mar numeric
+@attribute month=dec numeric
+@attribute duration numeric
+@attribute campaign numeric
+@attribute pdays numeric
+@attribute previous numeric
+@attribute poutcome=unknown numeric
+@attribute poutcome=failure numeric
+@attribute poutcome=other numeric
+@attribute poutcome=success numeric
+@attribute y {no,yes}
+
+@data
+
+
+Classifier Model
+LogisticRegression(C=0.1, max_iter=5000, random_state=42, solver='saga')
+
+Time taken to build model: 0.38 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        3773               83.455  %
+Incorrectly Classified Instances       748               16.545  %
+Kappa statistic                          0.4276
+Mean absolute error                      0.2523
+Root mean squared error                  0.353 
+Relative absolute error                123.6332 %
+Root relative squared error            110.5619 %
+Total Number of Instances             4521     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.844    0.238    0.965      0.844    0.900      0.463    0.892     0.984     no
+                 0.762    0.156    0.389      0.762    0.515      0.463    0.892     0.503     yes
+Weighted Avg.    0.835    0.229    0.898      0.835    0.856      0.463    0.892     0.928     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 3376  624 |    a = no
+  124  397 |    b = yes
+

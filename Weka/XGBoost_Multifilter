@@ -1,0 +1,126 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.FilteredClassifier -F "weka.filters.MultiFilter -F \"weka.filters.unsupervised.attribute.Standardize \" -F \"weka.filters.unsupervised.attribute.NominalToBinary -R first-last\" -F \"weka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42\" -S 1" -S 1 -W weka.classifiers.sklearn.ScikitLearnClassifier -- -batch 100 -learner XGBClassifier -parameters "colsample_bytree=0.9, eval_metric=\'logloss\', gamma=0, learning_rate=0.03, max_depth=7, min_child_weight=3, n_estimators=150, objective=\'binary:logistic\', random_state=42, reg_alpha=0.01, reg_lambda=5.0, subsample=0.8" -py-command /Users/Owner/Desktop/Bank-Project/.venv/bin/python3 -py-path default -server-name none
+Relation:     bank-small-weka
+Instances:    4521
+Attributes:   17
+              age
+              job
+              marital
+              education
+              default
+              balance
+              housing
+              loan
+              contact
+              day
+              month
+              duration
+              campaign
+              pdays
+              previous
+              poutcome
+              y
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+FilteredClassifier using weka.classifiers.sklearn.ScikitLearnClassifier -batch 100 -learner XGBClassifier -parameters "colsample_bytree=0.9, eval_metric=\'logloss\', gamma=0, learning_rate=0.03, max_depth=7, min_child_weight=3, n_estimators=150, objective=\'binary:logistic\', random_state=42, reg_alpha=0.01, reg_lambda=5.0, subsample=0.8" -py-command /Users/Owner/Desktop/Bank-Project/.venv/bin/python3 -py-path default -server-name none on data filtered through weka.filters.MultiFilter -F "weka.filters.unsupervised.attribute.Standardize " -F "weka.filters.unsupervised.attribute.NominalToBinary -R first-last" -F "weka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42" -S 1918958059
+
+Filtered Header
+@relation 'bank-small-weka-weka.filters.unsupervised.attribute.Standardize-weka.filters.unsupervised.attribute.NominalToBinary-Rfirst-last-weka.filters.supervised.instance.SMOTE-C0-K5-P668.0-S42-weka.filters.MultiFilter-Fweka.filters.unsupervised.attribute.Standardize-Fweka.filters.unsupervised.attribute.NominalToBinary -R first-last-Fweka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42-S1918958059'
+
+@attribute age numeric
+@attribute job=unemployed numeric
+@attribute job=services numeric
+@attribute job=management numeric
+@attribute job=blue-collar numeric
+@attribute job=self-employed numeric
+@attribute job=technician numeric
+@attribute job=entrepreneur numeric
+@attribute job=admin. numeric
+@attribute job=student numeric
+@attribute job=housemaid numeric
+@attribute job=retired numeric
+@attribute job=unknown numeric
+@attribute marital=married numeric
+@attribute marital=single numeric
+@attribute marital=divorced numeric
+@attribute education=primary numeric
+@attribute education=secondary numeric
+@attribute education=tertiary numeric
+@attribute education=unknown numeric
+@attribute default=yes numeric
+@attribute balance numeric
+@attribute housing=yes numeric
+@attribute loan=yes numeric
+@attribute contact=cellular numeric
+@attribute contact=unknown numeric
+@attribute contact=telephone numeric
+@attribute day numeric
+@attribute month=oct numeric
+@attribute month=may numeric
+@attribute month=apr numeric
+@attribute month=jun numeric
+@attribute month=feb numeric
+@attribute month=aug numeric
+@attribute month=jan numeric
+@attribute month=jul numeric
+@attribute month=nov numeric
+@attribute month=sep numeric
+@attribute month=mar numeric
+@attribute month=dec numeric
+@attribute duration numeric
+@attribute campaign numeric
+@attribute pdays numeric
+@attribute previous numeric
+@attribute poutcome=unknown numeric
+@attribute poutcome=failure numeric
+@attribute poutcome=other numeric
+@attribute poutcome=success numeric
+@attribute y {no,yes}
+
+@data
+
+
+Classifier Model
+XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=0.9, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric='logloss',
+              feature_types=None, feature_weights=None, gamma=0,
+              grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.03, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=7, max_leaves=None,
+              min_child_weight=3, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=150, n_jobs=None,
+              num_parallel_tree=None, ...)
+
+Time taken to build model: 0.67 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        4015               88.8078 %
+Incorrectly Classified Instances       506               11.1922 %
+Kappa statistic                          0.4831
+Mean absolute error                      0.1762
+Root mean squared error                  0.2799
+Relative absolute error                 86.3502 %
+Root relative squared error             87.654  %
+Total Number of Instances             4521     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.928    0.415    0.945      0.928    0.936      0.484    0.905     0.986     no
+                 0.585    0.073    0.513      0.585    0.547      0.484    0.905     0.545     yes
+Weighted Avg.    0.888    0.375    0.895      0.888    0.891      0.484    0.905     0.935     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 3710  290 |    a = no
+  216  305 |    b = yes
+

@@ -1,0 +1,83 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.FilteredClassifier -F "weka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42" -S 1 -W weka.classifiers.sklearn.ScikitLearnClassifier -- -batch 100 -learner LogisticRegression -parameters "C=0.1, class_weight=None, max_iter=5000, random_state=42, solver=\'saga\'" -py-command /Users/Owner/Desktop/Bank-Project/.venv/bin/python3 -py-path default -server-name none -S -do-not-check-capabilities
+Relation:     bank-small-weka
+Instances:    4521
+Attributes:   17
+              age
+              job
+              marital
+              education
+              default
+              balance
+              housing
+              loan
+              contact
+              day
+              month
+              duration
+              campaign
+              pdays
+              previous
+              poutcome
+              y
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+FilteredClassifier using weka.classifiers.sklearn.ScikitLearnClassifier -batch 100 -learner LogisticRegression -parameters "C=0.1, class_weight=None, max_iter=5000, random_state=42, solver=\'saga\'" -py-command /Users/Owner/Desktop/Bank-Project/.venv/bin/python3 -py-path default -server-name none -S -do-not-check-capabilities on data filtered through weka.filters.supervised.instance.SMOTE -C 0 -K 5 -P 668.0 -S 42
+
+Filtered Header
+@relation bank-small-weka-weka.filters.supervised.instance.SMOTE-C0-K5-P668.0-S42
+
+@attribute age numeric
+@attribute job {unemployed,services,management,blue-collar,self-employed,technician,entrepreneur,admin.,student,housemaid,retired,unknown}
+@attribute marital {married,single,divorced}
+@attribute education {primary,secondary,tertiary,unknown}
+@attribute default {no,yes}
+@attribute balance numeric
+@attribute housing {no,yes}
+@attribute loan {no,yes}
+@attribute contact {cellular,unknown,telephone}
+@attribute day numeric
+@attribute month {oct,may,apr,jun,feb,aug,jan,jul,nov,sep,mar,dec}
+@attribute duration numeric
+@attribute campaign numeric
+@attribute pdays numeric
+@attribute previous numeric
+@attribute poutcome {unknown,failure,other,success}
+@attribute y {no,yes}
+
+@data
+
+
+Classifier Model
+LogisticRegression(C=0.1, max_iter=5000, random_state=42, solver='saga')
+
+Time taken to build model: 6.57 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        3287               72.7052 %
+Incorrectly Classified Instances      1234               27.2948 %
+Kappa statistic                          0.2528
+Mean absolute error                      0.4198
+Root mean squared error                  0.4537
+Relative absolute error                205.7126 %
+Root relative squared error            142.0822 %
+Total Number of Instances             4521     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.727    0.274    0.953      0.727    0.825      0.309    0.795     0.959     no
+                 0.726    0.273    0.257      0.726    0.380      0.309    0.795     0.378     yes
+Weighted Avg.    0.727    0.274    0.873      0.727    0.774      0.309    0.795     0.892     
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 2909 1091 |    a = no
+  143  378 |    b = yes
+
